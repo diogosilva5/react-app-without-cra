@@ -1,6 +1,7 @@
 const path = require("path");
-const HTMLWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   target: "web",
@@ -8,22 +9,23 @@ module.exports = {
 
   devServer: {
     port: "3000",
-    static: ["./public"],
+    static: ["./build"],
     open: true,
     hot: true,
   },
 
   output: {
-    path: path.resolve(__dirname, "./public"),
+    path: path.resolve(__dirname, "./build"),
     filename: "bundle.js",
     assetModuleFilename: "images/[hash][ext][query]",
   },
 
   plugins: [
-    new HTMLWebpackPlugin({
-      template: "./public/index.html",
-    }),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
+    new HTMLWebpackPlugin({
+      template: "./index.html",
+    }),
   ],
 
   resolve: {

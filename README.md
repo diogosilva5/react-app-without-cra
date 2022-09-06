@@ -33,6 +33,5 @@
 
 # Webpack Plugins
 
-- yarn add html-webpack-plugin -D
+- yarn add html-webpack-plugin clean-webpack-plugin -D
 
--
