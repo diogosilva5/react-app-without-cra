@@ -23,7 +23,13 @@
 
   webpack changes
 
-  `{ test: /\.(css|scss)$/, use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"], },`
+  `{ test: /\.(css|scss)$/, use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"] }`
+
+## Webpack images
+
+`{ test: /\.(png|jpeg|jpg|gif|svg)$/i, type: "asset/resource" }`
+
+`output: { ... assetModuleFilename: "images/[hash][ext][query]", },`
 
 # Webpack Plugins
 

@@ -15,7 +15,8 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, "./public"),
-    filename: "main.js",
+    filename: "bundle.js",
+    assetModuleFilename: "images/[hash][ext][query]",
   },
 
   plugins: [
@@ -35,6 +36,10 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: "babel-loader",
+      },
+      {
+        test: /\.(png|jpeg|jpg|gif|svg)$/i,
+        type: "asset/resource",
       },
       {
         test: /\.(css|scss)$/,
