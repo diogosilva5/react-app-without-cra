@@ -1,4 +1,6 @@
 const path = require("path");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   target: "web",
@@ -16,6 +18,13 @@ module.exports = {
     filename: "main.js",
   },
 
+  plugins: [
+    new HTMLWebpackPlugin({
+      template: "./public/index.html",
+    }),
+    new MiniCssExtractPlugin(),
+  ],
+
   resolve: {
     extensions: [".js", ".jsx", ".json"],
   },
@@ -26,6 +35,15 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: "babel-loader",
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
       },
     ],
   },
