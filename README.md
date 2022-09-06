@@ -8,7 +8,7 @@
 
 - yarn add @babel/core @babel/preset-env @babel/preset-react @babel/plugin-transform-runtime babel-loader -D
 
-# CSS / SCSS
+## CSS / SCSS
 
 - yarn add mini-css-extract-plugin css-loader sass-loader sass -D
 
@@ -31,7 +31,10 @@
 
 `output: { ... assetModuleFilename: "images/[hash][ext][query]", },`
 
+## Typescript
+
+- yarn add typescript @types/react @types/react-dom -D
+
 # Webpack Plugins
 
 - yarn add html-webpack-plugin clean-webpack-plugin -D
-

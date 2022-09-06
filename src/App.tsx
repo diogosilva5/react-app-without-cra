@@ -1,5 +1,6 @@
 import React from "react";
-import ball from "./ball.jpeg";
+
+const ball = require("./ball.jpeg");
 
 const App = () => {
   return (

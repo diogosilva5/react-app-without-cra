@@ -5,17 +5,18 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   target: "web",
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
 
   devServer: {
+    static: path.join(__dirname, "build"),
     port: "3000",
-    static: ["./build"],
+    compress: true,
     open: true,
     hot: true,
   },
 
   output: {
-    path: path.resolve(__dirname, "./build"),
+    path: path.resolve(__dirname, "build"),
     filename: "bundle.js",
     assetModuleFilename: "images/[hash][ext][query]",
   },
@@ -29,13 +30,13 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: [".js", ".jsx", ".json"],
+    extensions: [".js", ".ts", ".tsx", ".json"],
   },
 
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
         use: "babel-loader",
       },
